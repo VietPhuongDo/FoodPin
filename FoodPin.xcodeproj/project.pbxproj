@@ -20,6 +20,14 @@
 		D472D95B2BFE19E300CBE5E5 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D472D9592BFE19C200CBE5E5 /* Nunito-Regular.ttf */; };
 		D472D95C2BFE19E300CBE5E5 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D472D95A2BFE19C200CBE5E5 /* Nunito-Bold.ttf */; };
 		D472D95E2BFEF6BA00CBE5E5 /* RestaurantDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472D95D2BFEF6BA00CBE5E5 /* RestaurantDetailHeaderView.swift */; };
+		D472D9602BFFACCC00CBE5E5 /* RestaurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472D95F2BFFACCC00CBE5E5 /* RestaurantDetailTextCell.swift */; };
+		D49B16BB2C00919F007F066C /* UiColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B16BA2C00919F007F066C /* UiColor+Ext.swift */; };
+		D49B16BD2C0095F6007F066C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B16BC2C0095F6007F066C /* NavigationController.swift */; };
+		D49B16BF2C009BCE007F066C /* RestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B16BE2C009BCE007F066C /* RestaurantDetailMapCell.swift */; };
+		D49B16C32C009F3E007F066C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49B16C12C009F13007F066C /* MapKit.framework */; };
+		D4A9A3F62BFFAF68009D60F8 /* RestaurantDetailTwoColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9A3F52BFFAF68009D60F8 /* RestaurantDetailTwoColumnCell.swift */; };
+		D4FBEFE22C00DF9D00F9A1D4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBEFE12C00DF9D00F9A1D4 /* MapViewController.swift */; };
+		D4FBEFE42C00FBCA00F9A1D4 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FBEFE32C00FBCA00F9A1D4 /* ReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +46,14 @@
 		D472D9592BFE19C200CBE5E5 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		D472D95A2BFE19C200CBE5E5 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		D472D95D2BFEF6BA00CBE5E5 /* RestaurantDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailHeaderView.swift; sourceTree = "<group>"; };
+		D472D95F2BFFACCC00CBE5E5 /* RestaurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTextCell.swift; sourceTree = "<group>"; };
+		D49B16BA2C00919F007F066C /* UiColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiColor+Ext.swift"; sourceTree = "<group>"; };
+		D49B16BC2C0095F6007F066C /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		D49B16BE2C009BCE007F066C /* RestaurantDetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailMapCell.swift; sourceTree = "<group>"; };
+		D49B16C12C009F13007F066C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D4A9A3F52BFFAF68009D60F8 /* RestaurantDetailTwoColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTwoColumnCell.swift; sourceTree = "<group>"; };
+		D4FBEFE12C00DF9D00F9A1D4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D4FBEFE32C00FBCA00F9A1D4 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D49B16C32C009F3E007F066C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +73,7 @@
 			children = (
 				D429EDD32BFB4A3400E6F7FA /* FoodPin */,
 				D429EDD22BFB4A3400E6F7FA /* Products */,
+				D49B16C02C009F13007F066C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +88,7 @@
 		D429EDD32BFB4A3400E6F7FA /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				D49B16B92C009184007F066C /* Extensions */,
 				D472D9572BFE193A00CBE5E5 /* Resources */,
 				D429EDEE2BFD00F300E6F7FA /* Storyboard */,
 				D429EDF02BFD013900E6F7FA /* Controller */,
@@ -106,6 +125,9 @@
 			children = (
 				D429EDE82BFB4AA800E6F7FA /* RestaurantTableViewController.swift */,
 				D429EDF42BFDB86400E6F7FA /* RestaurantDetailViewController.swift */,
+				D49B16BC2C0095F6007F066C /* NavigationController.swift */,
+				D4FBEFE12C00DF9D00F9A1D4 /* MapViewController.swift */,
+				D4FBEFE32C00FBCA00F9A1D4 /* ReviewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -115,6 +137,9 @@
 			children = (
 				D429EDEA2BFB759900E6F7FA /* RestaurantTableViewCell.swift */,
 				D472D95D2BFEF6BA00CBE5E5 /* RestaurantDetailHeaderView.swift */,
+				D472D95F2BFFACCC00CBE5E5 /* RestaurantDetailTextCell.swift */,
+				D4A9A3F52BFFAF68009D60F8 /* RestaurantDetailTwoColumnCell.swift */,
+				D49B16BE2C009BCE007F066C /* RestaurantDetailMapCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,6 +159,22 @@
 				D472D9592BFE19C200CBE5E5 /* Nunito-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D49B16B92C009184007F066C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D49B16BA2C00919F007F066C /* UiColor+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D49B16C02C009F13007F066C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D49B16C12C009F13007F066C /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,14 +250,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D472D9602BFFACCC00CBE5E5 /* RestaurantDetailTextCell.swift in Sources */,
+				D49B16BD2C0095F6007F066C /* NavigationController.swift in Sources */,
+				D4FBEFE42C00FBCA00F9A1D4 /* ReviewViewController.swift in Sources */,
+				D49B16BB2C00919F007F066C /* UiColor+Ext.swift in Sources */,
 				D429EDED2BFCFBCA00E6F7FA /* Restaurant.swift in Sources */,
 				D429EDF52BFDB86400E6F7FA /* RestaurantDetailViewController.swift in Sources */,
 				D429EDEB2BFB759900E6F7FA /* RestaurantTableViewCell.swift in Sources */,
+				D4A9A3F62BFFAF68009D60F8 /* RestaurantDetailTwoColumnCell.swift in Sources */,
 				D429EDE92BFB4AA800E6F7FA /* RestaurantTableViewController.swift in Sources */,
+				D49B16BF2C009BCE007F066C /* RestaurantDetailMapCell.swift in Sources */,
 				D429EDD52BFB4A3400E6F7FA /* AppDelegate.swift in Sources */,
 				D429EDF32BFD82ED00E6F7FA /* RestaurantDiffableDataSource.swift in Sources */,
 				D472D95E2BFEF6BA00CBE5E5 /* RestaurantDetailHeaderView.swift in Sources */,
 				D429EDD72BFB4A3400E6F7FA /* SceneDelegate.swift in Sources */,
+				D4FBEFE22C00DF9D00F9A1D4 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -369,6 +417,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -401,6 +450,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -39,16 +39,39 @@ class RestaurantTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
+        // Enable large title for navigation bar
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.hidesBarsOnSwipe = true
         
+        // Set up the data source of the table view
         tableView.dataSource = dataSource
-        var snapshot = NSDiffableDataSourceSnapshot<Section,Restaurant>()
+        tableView.separatorStyle = .none
+        
+        // Create a snapshot and populate the data
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
         snapshot.appendSections([.all])
         snapshot.appendItems(restaurants, toSection: .all)
-        dataSource.apply(snapshot,animatingDifferences: false)
-        
+        dataSource.apply(snapshot, animatingDifferences: false)
         tableView.cellLayoutMarginsFollowReadableWidth = true
+        
+        //custom apperance of navigation bar
+        navigationItem.backButtonTitle = ""
+        if let apperance = navigationController?.navigationBar.standardAppearance{
+            apperance.configureWithTransparentBackground()
+            if let customFont = UIFont(name: "Nunito-Bold", size: 45.0){
+                apperance.titleTextAttributes = [.foregroundColor: UIColor(named: "NavigationBarTitle")!]
+                apperance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "NavigationBarTitle")!,.font:customFont]
+            }
+            navigationController?.navigationBar.standardAppearance = apperance
+            navigationController?.navigationBar.compactAppearance = apperance
+            navigationController?.navigationBar.scrollEdgeAppearance = apperance
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 //MARK: - TableviewDiffable Datasource
@@ -74,7 +97,7 @@ class RestaurantTableViewController: UITableViewController {
         if segue.identifier == "showRestaurantDetail"{
             if let indexPath = tableView.indexPathForSelectedRow{
                 let destinationController = segue.destination as! RestaurantDetailViewController
-                destinationController.detailRestaurant = self.restaurants[indexPath.row]
+                destinationController.restaurant = self.restaurants[indexPath.row]
             }
         }
     }
