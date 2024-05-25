@@ -15,7 +15,5 @@ class RestaurantDiffableDataSource: UITableViewDiffableDataSource<Section,Restau
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-    
 
 }

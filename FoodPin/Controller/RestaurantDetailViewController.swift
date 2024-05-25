@@ -25,6 +25,11 @@ class RestaurantDetailViewController: UIViewController {
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
         headerView.headerImageView.image = UIImage(named: restaurant.image)
+    
+        if let ratingImage = restaurant.rating?.image{
+            headerView.ratingImageView.image = UIImage(named: ratingImage)
+        }
+    
         
         let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
         headerView.heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
@@ -100,9 +105,31 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
             break
         }
     }
-    
+
+//MARK: - Unwind action
     @IBAction func close(segue:UIStoryboardSegue){
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func rateRestaurant(segue:UIStoryboardSegue){
+        guard let identifier = segue.identifier else {
+                return
+            }
+
+            dismiss(animated: true, completion: {
+                if let rating = Restaurant.Rating(rawValue: identifier) {
+                    self.restaurant.rating = rating
+                                self.headerView.ratingImageView.image = UIImage(named: rating.image)
+                            }
+                let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+                self.headerView.ratingImageView.transform = scaleTransform
+                self.headerView.ratingImageView.alpha = 0
+
+                UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.7, options: [], animations: {
+                        self.headerView.ratingImageView.transform = .identity
+                        self.headerView.ratingImageView.alpha = 1
+                            }, completion: nil)
+                        })
+                    }
 
 }
