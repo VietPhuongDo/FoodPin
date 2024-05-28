@@ -159,6 +159,10 @@ class RestaurantTableViewController: UITableViewController {
         
     }
     
+    @IBAction func unwindSegue(segue:UIStoryboardSegue){
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 
 
