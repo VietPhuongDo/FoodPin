@@ -11,6 +11,7 @@ class RestaurantDetailViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: RestaurantDetailHeaderView!
+    @IBOutlet var favoriteBarButton: UIBarButtonItem!
     
     var restaurant: Restaurant = Restaurant()
     
@@ -24,17 +25,15 @@ class RestaurantDetailViewController: UIViewController {
         // Configure header view
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
-        headerView.headerImageView.image = UIImage(named: restaurant.image)
+        headerView.headerImageView.image = UIImage(data: restaurant.image)
     
         if let ratingImage = restaurant.rating?.image{
             headerView.ratingImageView.image = UIImage(named: ratingImage)
         }
     
         
-        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
-        headerView.heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
-        headerView.heartButton.setImage(UIImage(systemName: heartImage), for: .normal)
-        headerView.heartButton.setTitle("", for: .normal)
+        configureFavoriteIcon()
+
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -62,7 +61,7 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailTextCell.self), for: indexPath) as! RestaurantDetailTextCell
             
-            cell.descriptionLabel.text = restaurant.description
+            cell.descriptionLabel.text = restaurant.summary
             
             return cell
             
@@ -119,8 +118,12 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
             dismiss(animated: true, completion: {
                 if let rating = Restaurant.Rating(rawValue: identifier) {
                     self.restaurant.rating = rating
-                                self.headerView.ratingImageView.image = UIImage(named: rating.image)
-                            }
+                    self.headerView.ratingImageView.image = UIImage(named: rating.image)
+                    if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+                        appDelegate.saveContext()
+                    }
+                }
+                
                 let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
                 self.headerView.ratingImageView.transform = scaleTransform
                 self.headerView.ratingImageView.alpha = 0
@@ -131,5 +134,21 @@ extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDele
                             }, completion: nil)
                         })
                     }
+    
+    @IBAction func saveIsFavorite(){
+        restaurant.isFavorite.toggle()
+        configureFavoriteIcon()
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            appDelegate.saveContext()
+        }
+    }
+    
+    func configureFavoriteIcon() {
+        let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
+        let heartIconConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold)
+        favoriteBarButton.image = UIImage(systemName: heartImage, withConfiguration: heartIconConfiguration)
+        favoriteBarButton.tintColor = restaurant.isFavorite ? .systemPink : .white
+    }
 
 }
